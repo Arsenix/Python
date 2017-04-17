@@ -1,12 +1,9 @@
- #Ejercicio 1
+#Ejercicio 1
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 nombre = raw_input("Ingresa tu nombre : ")
 edad = int(input("Ingresa tu edad :"))
-
 print "Bienvenido ",nombre, " tienes una edad de ", edad, " anhos lo sufiente para que puedas entender python!" 
-
-
 
 #Ejercicio 2
 c = float(input("Ingrese un la temperatura a convertir: "))
