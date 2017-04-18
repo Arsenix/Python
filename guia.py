@@ -44,7 +44,7 @@ while True:
 	#Ejercicio 4
 		f = int(input("Ingresa el numero a calcular su factorial: "))
 		if f > 1:
-			f*=f-1
+			f*=f*f-1
 		print ("El factorial del numero es : ",f)
 		ne4 = float(input("Ingresa la nota del ejercicio 4 :"))
 	elif ejercicio == 5:
