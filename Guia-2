@@ -1,0 +1,10 @@
+#Pregunta 2
+cantidad = int(input("Ingrese la cantidad de dinero que se quiere asignar para comprar chocolates : "))
+#Cada 3 chocolates tengo uno gratis -> cada 300 pesos son 4 chocolates 
+
+chocolates = (cantidad/100)
+vueltoplata = (cantidad % 100)
+vueltoenvoltorios = (chocolates % 3)
+total = chocolates + chocolates/3
+
+print "La cantidad de chocolates es :" ,total , "los envoltorios que sobraran son : " , vueltoenvoltorios, " el vuelto de la plata que se ingreso es : ", vueltoplata 
