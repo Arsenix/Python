@@ -1,18 +1,26 @@
 #!/usr/bin/env python
-#Ejercicio1
-
-n = int(input("Ingrese un numero entero : "))
-primos = []
-number = 1
-while len(primos) <= n:
-   is_primo = True
-   for i in range(2, number - 1):
-       if number % i == 0:
-           is_primo = False
-   if is_primo:
-       primos.append(number)
-   number += 1
-print ("El numero primo en la posicion ", n, "es :", primos[-1])
+while True:
+	ne1=0
+	ne2=0
+	ne3=0
+	ne4=0
+	ne5=0
+	nf=0
+	ejercicio = int(input("Ingrese el ejercicio a revisar (opciones del 1 al 5, 0 para salir) : "))
+	if ejercicio == 1:
+		#Ejercicio1
+		n = int(input("Ingrese un numero entero : "))
+		primos = []
+		number = 1
+		while len(primos) <= n:
+		   is_primo = True
+		   for i in range(2, number - 1):
+		       if number % i == 0:
+			   is_primo = False
+		   if is_primo:
+		       primos.append(number)
+		   number += 1
+		print ("El numero primo en la posicion ", n, "es :", primos[-1])
 ###################################################
 #Pregunta 2
 cantidad = int(input("Ingrese la cantidad de dinero que se quiere asignar para comprar chocolates : "))
