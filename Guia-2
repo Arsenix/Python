@@ -1,3 +1,15 @@
+#!/usr/bin/env python
+
+#Ejercicios 3
+texto_teclado = []
+while True:
+	texto = raw_input("Ingrese una palabra :")
+	if texto == "fin":
+		print texto_teclado [::-1]
+		break
+	else:
+		texto_teclado.append(texto)
+
 #Pregunta 2
 cantidad = int(input("Ingrese la cantidad de dinero que se quiere asignar para comprar chocolates : "))
 #Cada 3 chocolates tengo uno gratis -> cada 300 pesos son 4 chocolates 
@@ -8,3 +20,100 @@ vueltoenvoltorios = (chocolates % 3)
 total = chocolates + chocolates/3
 
 print "La cantidad de chocolates es :" ,total , "los envoltorios que sobraran son : " , vueltoenvoltorios, " el vuelto de la plata que se ingreso es : ", vueltoplata 
+
+#Pregunta 5
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+cp = int(input("Ingrese la cantidad de personas a participar en el terreo : "))
+cht = int(input("Ingrese la cantidad de horas que durara el terreo : "))
+vsp = 0.0
+vnb = 0.0
+# se sabe que por cada hora de tarreo se consumen en total 5 articulos independiente de la
+# cantidad de participantes del tarreo.
+if (cht >= 3):
+	#Se aplica factor de descuento en supermercado
+	vsp = (1500*cht+1350*cht*2+990*cht+560*cht)*0.88
+	vnb = (1390*cht+1150*2*cht+930*cht+500*cht)
+	if (vsp > vnb):
+		print "Es mas conveniente comprar en el negocio del barrio, se gastara un total de :",vnb," el ahorro total es de :",vnb-vsp," cada uno debe aportar: " (float(vnb)/float(cp)
+	elif (vsp<vnb):
+		print "Es mas conveniente comprar en el supermercado, se gastara un total de :",vsp, "el ahorro total es de :",vsp-vnb," cada uno debe aportar: " (float(vsp)/float(cp)
+	else:
+		print"Da igual donde commprar ya que el valor es mismo, cada uno debe aportar : " (float(vnb)/float(cp)) 
+
+#Pregunta 4
+pcc = int(raw_input("Ingrese la cantidad de Coca Colas que quiere comprar : "))
+pf = int(raw_input("Ingrese la candidad de fideos que desea comprar : "))
+ppf = int(raw_input("Ingrese la candidad de Papas fritas que desea comprar : "))
+pd = int(raw_input("Ingrese la cantidad de detergente que desea comprar : "))
+psp = int(raw_input("Ingrese la cantidad de sopas preparadas que desea comprar : "))
+spcc = 0
+spf = 0
+sppf = 0
+spd = 0
+spsp = 0
+#Calculo del descuento aplicable a las bebidas
+if (pcc > 12):
+	porcentaje_descuentoppc = (pcc/12)*4
+	desccajasppc = pcc/12
+	if(desccajasppc)>7:
+		porcentaje_descuentopcc = 28
+	else:
+		porcentaje_descuentopcc = ((desccajasppc%10)*4)/100.0
+else:
+	porcentaje_descuentopcc = 0
+	spcc = pcc/6
+#Calculo de descuento aplicacble a los fideos
+if (pf > 60):
+	porcentaje_descuentopf = (pf/60)*4
+	desccajaspf = pf/60
+	if(desccajaspf%10)>7:
+		porcentaje_descuentopf = 28
+	else:
+		porcentaje_descuentopf = ((desccajaspf%10)*4)/100.0
+else:
+	porcentaje_descuentopf = 0
+	spf = pf/30
+#Calculo de descuento aplicable a las papas fritas
+if (ppf > 50):
+	porcentaje_descuentoppf = (ppf/50)*4
+	desccajasppf = ppf/50
+	if(desccajasppf%10)>7:
+		porcentaje_descuentoppf = 28
+	else:
+		porcentaje_descuentoppf = ((desccajasppf%10)*4)/100.0
+else:
+	porcentaje_descuentoppf = 0
+	sppf = ppf/25
+#Calculo de descuento aplicacble a los detergentes
+if (pd > 16):
+	porcentaje_descuentopd = (pd/16)*4
+	desccajaspd = pd/16
+	if(desccajaspd%10)>7:
+		porcentaje_descuentopd = 28
+	else:
+		porcentaje_descuentopd = ((desccajaspd%10)*4)/100.0
+else:
+	porcentaje_descuentopd = 0
+	spd = pd/8
+#Calculo de descuento aplicacble a las sopas preparadas
+if (psp > 80):
+	porcentaje_descuentopsp = (psp/80)*4
+	desccajaspsp = psp/80
+	if(desccajaspsp%10)>7:
+		porcentaje_descuentopsp = 28/100.0
+	else:
+		porcentaje_descuentopsp = ((desccajaspsp%10)*4)/100.0
+else:
+	porcentaje_descuentopsp = 0
+	spsp = psp/40
+
+if (spcc+spf+sppf+spd+spsp > 14):
+	descuentocompra = 0.05
+else:
+	descuentocompra = 0
+valorcompra = (pcc*1200*(1-porcentaje_descuentopcc)+pf*800*(1-porcentaje_descuentopf)+ppf*120*(1-porcentaje_descuentoppf)+pd*2350*(1-porcentaje_descuentopd)+psp*350*(1-porcentaje_descuentopsp))*(1-descuentocompra)
+ganancia = pcc*1450+pf*990+ppf*250+pd*2500+psp*550
+print ("El valor de comprar los productos es de : "),valorcompra
+#Se define ganacia como la diferencia de lo que genera por vender todos los productos - el valor que gasto en comprar todos los productos.
+print ("La ganancia generada por vender todos los productos fue de :"),ganancia-valorcompra
