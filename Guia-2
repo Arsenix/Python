@@ -1,15 +1,19 @@
 #!/usr/bin/env python
+#Ejercicio1
 
-#Ejercicios 3
-texto_teclado = []
-while True:
-	texto = raw_input("Ingrese una palabra :")
-	if texto == "fin":
-		print "El texto ingresado en forma LIFO es : ",texto_teclado [::-1]
-		break
-	else:
-		texto_teclado.append(texto)
-
+n = int(input("Ingrese un numero entero : "))
+primos = []
+number = 1
+while len(primos) <= n:
+   is_primo = True
+   for i in range(2, number - 1):
+       if number % i == 0:
+           is_primo = False
+   if is_primo:
+       primos.append(number)
+   number += 1
+print ("El numero primo en la posicion ", n, "es :", primos[-1])
+###################################################
 #Pregunta 2
 cantidad = int(input("Ingrese la cantidad de dinero que se quiere asignar para comprar chocolates : "))
 #Cada 3 chocolates tengo uno gratis -> cada 300 pesos son 4 chocolates 
@@ -20,26 +24,17 @@ vueltoenvoltorios = (chocolates % 3)
 total = chocolates + chocolates/3
 
 print "La cantidad de chocolates es :" ,total , "los envoltorios que sobraran son : " , vueltoenvoltorios, " el vuelto de la plata que se ingreso es : ", vueltoplata 
-
-#Pregunta 5
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-cp = int(input("Ingrese la cantidad de personas a participar en el terreo : "))
-cht = int(input("Ingrese la cantidad de horas que durara el terreo : "))
-vsp = 0.0
-vnb = 0.0
-# se sabe que por cada hora de tarreo se consumen en total 5 articulos independiente de la
-# cantidad de participantes del tarreo.
-if (cht >= 3):
-	#Se aplica factor de descuento en supermercado
-	vsp = (1500*cht+1350*cht*2+990*cht+560*cht)*0.88
-	vnb = (1390*cht+1150*2*cht+930*cht+500*cht)
-	if (vsp > vnb):
-		print "Es mas conveniente comprar en el negocio del barrio, se gastara un total de :",vnb," el ahorro total es de :",vnb-vsp," cada uno debe aportar: " (float(vnb)/float(cp)
-	elif (vsp<vnb):
-		print "Es mas conveniente comprar en el supermercado, se gastara un total de :",vsp, "el ahorro total es de :",vsp-vnb," cada uno debe aportar: " (float(vsp)/float(cp)
+##################################################
+#Ejercicios 3
+texto_teclado = []
+while True:
+	texto = raw_input("Ingrese una palabra :")
+	if texto == "fin":
+		print "El texto ingresado en forma LIFO es : ",texto_teclado [::-1]
+		break
 	else:
-		print"Da igual donde commprar ya que el valor es mismo, cada uno debe aportar : " (float(vnb)/float(cp)) 
+		texto_teclado.append(texto)
+###################################
 
 #Pregunta 4
 pcc = int(raw_input("Ingrese la cantidad de Coca Colas que quiere comprar : "))
@@ -116,4 +111,25 @@ valorcompra = (pcc*1200*(1-porcentaje_descuentopcc)+pf*800*(1-porcentaje_descuen
 ganancia = pcc*1450+pf*990+ppf*250+pd*2500+psp*550
 print ("El valor de comprar los productos es de : "),valorcompra
 #Se define ganacia como la diferencia de lo que genera por vender todos los productos - el valor que gasto en comprar todos los productos.
-print ("La ganancia generada por vender todos los productos fue de :"),ganancia-valorcompra
+print ("La ganancia generada por vender todos los productos fue de : "),ganancia-valorcompra		
+##############################################
+#Pregunta 5
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+cp = int(input("Ingrese la cantidad de personas a participar en el terreo : "))
+cht = int(input("Ingrese la cantidad de horas que durara el terreo : "))
+vsp = 0.0
+vnb = 0.0
+# se sabe que por cada hora de tarreo se consumen en total 5 articulos independiente de la
+# cantidad de participantes del tarreo.
+if (cht >= 3):
+	#Se aplica factor de descuento en supermercado
+	vsp = (1500*cht+1350*cht*2+990*cht+560*cht)*0.88
+	vnb = (1390*cht+1150*2*cht+930*cht+500*cht)
+	if (vsp > vnb):
+		print "Es mas conveniente comprar en el negocio del barrio, se gastara un total de :",vnb," el ahorro total es de :",vnb-vsp," cada uno debe aportar: " (float(vnb)/float(cp)
+	elif (vsp<vnb):
+		print "Es mas conveniente comprar en el supermercado, se gastara un total de :",vsp, "el ahorro total es de :",vsp-vnb," cada uno debe aportar: " (float(vsp)/float(cp)
+	else:
+		print"Da igual donde commprar ya que el valor es mismo, cada uno debe aportar : " (float(vnb)/float(cp)) 
+
