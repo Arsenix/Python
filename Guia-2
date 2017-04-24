@@ -5,7 +5,7 @@ texto_teclado = []
 while True:
 	texto = raw_input("Ingrese una palabra :")
 	if texto == "fin":
-		print texto_teclado [::-1]
+		print "El texto ingresado en forma LIFO es : ",texto_teclado [::-1]
 		break
 	else:
 		texto_teclado.append(texto)
