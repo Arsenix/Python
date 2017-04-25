@@ -9,14 +9,17 @@ while True:
 	ejercicio = int(input("Ingrese el ejercicio a revisar (opciones del 1 al 5, 0 para salir) : "))
 	if ejercicio == 1:
 		#Ejercicio1
+		n = int(input(“Ingrese un numero entero : “))
+		primos = []
+		number = 1
 		while len(primos) <= n:
 			is_primo = True
-			for i in range(2, number - 1):
-				if number % i == 0:
-					is_primo = False
-			if is_primo:
-				primos.append(number)
-			number += 1
+		for i in xrange(2, number - 1):
+			if number % i == 0:
+				is_primo = False
+		if is_primo:
+			primos.append(number)
+		number += 1
 		print ("El numero primo en la posicion ", n, "es :", primos[-1])
 		ne1 = float(input("Ingresa la nota del ejercicio 1 :"))
 	elif ejercicio == 2:
