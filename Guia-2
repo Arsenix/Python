@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+''' Tabata Ormeño
+	Pablo Reyes
+	Carlos Beyzaga Medel (Profesor)
+'''
 while True:
 	ne1=0
 	ne2=0
@@ -9,40 +13,47 @@ while True:
 	ejercicio = int(input("Ingrese el ejercicio a revisar (opciones del 1 al 5, 0 para salir) : "))
 	if ejercicio == 1:
 		#Ejercicio1
-		n = int(input(“Ingrese un numero entero : “))
+		n = int(input("Ingrese un numero entero : "))
 		primos = []
 		number = 1
 		while len(primos) <= n:
 			is_primo = True
-		for i in xrange(2, number - 1):
-			if number % i == 0:
-				is_primo = False
-		if is_primo:
-			primos.append(number)
-		number += 1
+			for i in range(2, number - 1):
+				if number % i == 0:
+					is_primo = False
+			if is_primo:
+				primos.append(number)
+			number += 1
 		print ("El numero primo en la posicion ", n, "es :", primos[-1])
 		ne1 = float(input("Ingresa la nota del ejercicio 1 :"))
 	elif ejercicio == 2:
 		###################################################
 		#Pregunta 2
+		#con 500 pesos puedo comer 7 chocolates y sobra 1 envoltorio
 		cantidad = int(input("Ingrese la cantidad de dinero que se quiere asignar para comprar chocolates : "))
 		#Cada 3 chocolates tengo uno gratis -> cada 300 pesos son 4 chocolates 
-
 		chocolates = (cantidad/100)
 		vueltoplata = (cantidad % 100)
 		vueltoenvoltorios = (chocolates % 3)
-		total = chocolates + chocolates/3
-
-		print ("La cantidad de chocolates es :" ,total , "los envoltorios que sobraran son : " , vueltoenvoltorios, " el vuelto de la plata que se ingreso es : "), vueltoplata 
+		if (((chocolates % 3) > 2 and vueltoenvoltorios == 1) or ((chocolates % 3) > 1 and vueltoenvoltorios ==2)):
+			print ("holas")
+			total = chocolates + 1 + chocolates/3
+			vueltoenvoltorios -=1
+		elif (chocolates >=3):
+			total = chocolates + chocolates/3
+			vueltoenvoltorios +=1
+		else:
+			total = chocolates + chocolates/3
+		print ("La cantidad de chocolates es :" ,int(total) , "los envoltorios que sobraran son : " , int(vueltoenvoltorios), " el vuelto de la plata que se ingreso es : ", vueltoplata) 
 		ne2 = float(input("Ingresa la nota del ejercicio 2 :"))
 		##################################################
 	elif ejercicio == 3:
 		#Ejercicios 3
 		texto_teclado = []
 		while True:
-			texto = raw_input("Ingrese una palabra :")
+			texto = input("Ingrese una palabra :")
 			if texto == "fin":
-				print ("El texto ingresado en forma LIFO es : "),texto_teclado [::-1]
+				print ("El texto ingresado en forma LIFO es : ",texto_teclado [::-1])
 				ne3 = float(input("Ingresa la nota del ejercicio 3 :"))
 				break
 			else:
@@ -51,11 +62,11 @@ while True:
 ###################################
 	elif ejercicio == 4:
 		#Pregunta 4
-		pcc = int(raw_input("Ingrese la cantidad de Coca Colas que quiere comprar : "))
-		pf = int(raw_input("Ingrese la candidad de fideos que desea comprar : "))
-		ppf = int(raw_input("Ingrese la candidad de Papas fritas que desea comprar : "))
-		pd = int(raw_input("Ingrese la cantidad de detergente que desea comprar : "))
-		psp = int(raw_input("Ingrese la cantidad de sopas preparadas que desea comprar : "))
+		pcc = int(input("Ingrese la cantidad de Coca Colas que quiere comprar : "))
+		pf = int(input("Ingrese la candidad de fideos que desea comprar : "))
+		ppf = int(input("Ingrese la candidad de Papas fritas que desea comprar : "))
+		pd = int(input("Ingrese la cantidad de detergente que desea comprar : "))
+		psp = int(input("Ingrese la cantidad de sopas preparadas que desea comprar : "))
 		spcc = 0
 		spf = 0
 		sppf = 0
@@ -123,15 +134,15 @@ while True:
 			descuentocompra = 0
 		valorcompra = (pcc*1200*(1-porcentaje_descuentopcc)+pf*800*(1-porcentaje_descuentopf)+ppf*120*(1-porcentaje_descuentoppf)+pd*2350*(1-porcentaje_descuentopd)+psp*350*(1-porcentaje_descuentopsp))*(1-descuentocompra)
 		ganancia = pcc*1450+pf*990+ppf*250+pd*2500+psp*550
-		print ("El valor de comprar los productos es de : "),valorcompra
+		print ("El valor de comprar los productos es de : ",valorcompra)
 		#Se define ganacia como la diferencia de lo que genera por vender todos los productos - el valor que gasto en comprar todos los productos.
-		print ("La ganancia generada por vender todos los productos fue de : "),ganancia-valorcompra	
+		print ("La ganancia generada por vender todos los productos fue de : ",ganancia-valorcompra)	
 		ne4 = float(input("Ingresa la nota del ejercicio 4 :"))
 		##############################################
 	elif ejercicio == 5: 
 		#Pregunta 5
 		#!/usr/bin/env python
-		# -*- coding: utf-8 -*-
+		# -- coding: utf-8 --
 		cp = int(input("Ingrese la cantidad de personas a participar en el terreo : "))
 		cht = int(input("Ingrese la cantidad de horas que durara el terreo : "))
 		vsp = 0.0
@@ -140,15 +151,26 @@ while True:
 		# cantidad de participantes del tarreo.
 		if (cht >= 3):
 			#Se aplica factor de descuento en supermercado
-			vsp = (1500*cht+1350*cht*2+990*cht+560*cht)*0.88
-			vnb = (1390*cht+1150*2*cht+930*cht+500*cht)
+			vsp = (1500*cht*2+1350*cht*2+990*cht+560*cht*2)*0.88
+			vnb = (1390*cht*2+1150*2*cht+930*cht+500*cht*2)
 			if (vsp > vnb):
-				print "Es mas conveniente comprar en el negocio del barrio, se gastara un total de :",vnb," el ahorro total es de :",vnb-vsp," cada uno debe aportar: " (float(vnb)/float(cp)
+				print("Es mas conveniente comprar en el negocio del barrio, se gastara un total de :",float(vnb)," el ahorro total es de :",(float(vsp)-float(vnb))," cada uno debe aportar: ", (float(vnb)/float(cp)))
 			elif (vsp<vnb):
-				print "Es mas conveniente comprar en el supermercado, se gastara un total de :",vsp, "el ahorro total es de :",vsp-vnb," cada uno debe aportar: " (float(vsp)/float(cp)
+				print("Es mas conveniente comprar en el supermercado, se gastara un total de :",float(vsp), "el ahorro total es de :",float(float(vnb)-float(vsp))," cada uno debe aportar: ", (float(vsp)/float(cp)))
 			else:
-				print"Da igual donde commprar ya que el valor es mismo, cada uno debe aportar : " (float(vnb)/float(cp)) 
+				print("Da igual donde commprar ya que el valor es mismo, cada uno debe aportar : ", (float(vnb)/float(cp)))
 			ne5 = float(input("Ingrese la nota del ejercicio 5: "))
+		else:
+			vsp = (1500*cht*2+1350*cht*2+990*cht+560*cht*2)
+			vnb = (1390*cht*2+1150*2*cht+930*cht+500*cht*2)
+			if (vsp > vnb):
+				print("Es mas conveniente comprar en el negocio del barrio, se gastara un total de :",float(vnb)," el ahorro total es de :",(float(vsp)-float(vnb))," cada uno debe aportar: ", (float(vnb)/float(cp)))
+			elif (vsp<vnb):
+				print("Es mas conveniente comprar en el supermercado, se gastara un total de :",float(vsp), "el ahorro total es de :",float(float(vnb)-float(vsp))," cada uno debe aportar: ", (float(vsp)/float(cp)))
+			else:
+				print("Da igual donde commprar ya que el valor es mismo, cada uno debe aportar : ", (float(vnb)/float(cp)))
+			ne5 = float(input("Ingrese la nota del ejercicio 5: "))
+
 	elif ejercicio == 0:
 		nf=float((ne1+ne2+ne3+ne4+ne5)/5)
 		if (nf<4):
