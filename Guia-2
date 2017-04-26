@@ -36,7 +36,6 @@ while True:
 		vueltoplata = (cantidad % 100)
 		vueltoenvoltorios = (chocolates % 3)
 		if (((chocolates % 3) > 2 and vueltoenvoltorios == 1) or ((chocolates % 3) > 1 and vueltoenvoltorios ==2)):
-			print ("holas")
 			total = chocolates + 1 + chocolates/3
 			vueltoenvoltorios -=1
 		elif (chocolates >=3):
